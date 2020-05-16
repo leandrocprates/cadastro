@@ -1,5 +1,7 @@
 package com.example.cadastro.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import javax.persistence.*;
 import java.util.Date;
@@ -20,7 +22,8 @@ public class Usuario {
     @Temporal(TemporalType.TIMESTAMP)
     private Date data ;
 
-    @OneToMany(cascade = CascadeType.ALL , mappedBy = "usuario", fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY , mappedBy = "usuario")
+    @JsonManagedReference
     private List<Endereco> enderecos ;
 
 

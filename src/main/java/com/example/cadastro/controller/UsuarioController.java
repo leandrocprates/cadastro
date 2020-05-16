@@ -21,16 +21,16 @@ public class UsuarioController {
     @Autowired
     UsuarioService usuarioService ;
 
-    @RequestMapping("")
-    public ResponseEntity<Object> listarTodos(){
+    @RequestMapping(value="", method = RequestMethod.GET)
+    public ResponseEntity<List<Usuario>> listarTodos(){
         List<Usuario> listUsuarios = usuarioService.listarTodos();
         return new ResponseEntity<>(listUsuarios , HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}" , method = RequestMethod.GET)
-    public ResponseEntity<Object> getUsuarioById(@PathVariable Long id){
+    public ResponseEntity<UsuarioDTO> getUsuarioById(@PathVariable Long id){
         UsuarioDTO usuarioDTO =  usuarioService.getUsuarioById(id);
-        return new ResponseEntity<>( usuarioDTO, HttpStatus.OK ) ;
+        return new ResponseEntity<UsuarioDTO>( usuarioDTO, HttpStatus.OK ) ;
     }
 
     /**
@@ -49,9 +49,9 @@ public class UsuarioController {
      *
     */
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public ResponseEntity<Object> salvar(@RequestBody UsuarioDTO usuarioDTO){
+    public ResponseEntity<UsuarioDTO> salvar(@RequestBody UsuarioDTO usuarioDTO){
         UsuarioDTO usuarioDTOCreated =  usuarioService.salvar(usuarioDTO);
-        return new ResponseEntity<>(usuarioDTOCreated, HttpStatus.CREATED );
+        return new ResponseEntity<UsuarioDTO>(usuarioDTOCreated, HttpStatus.CREATED );
     }
 
     @RequestMapping(value="/{id}",method=RequestMethod.DELETE)
