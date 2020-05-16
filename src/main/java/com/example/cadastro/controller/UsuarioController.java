@@ -6,6 +6,8 @@ import com.example.cadastro.service.UsuarioService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,13 +22,15 @@ public class UsuarioController {
     UsuarioService usuarioService ;
 
     @RequestMapping("")
-    public List<Usuario> listarTodos(){
-        return usuarioService.listarTodos();
+    public ResponseEntity<Object> listarTodos(){
+        List<Usuario> listUsuarios = usuarioService.listarTodos();
+        return new ResponseEntity<>(listUsuarios , HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}" , method = RequestMethod.GET)
-    public UsuarioDTO getUsuarioById(@PathVariable Long id){
-        return usuarioService.getUsuarioById(id);
+    public ResponseEntity<Object> getUsuarioById(@PathVariable Long id){
+        UsuarioDTO usuarioDTO =  usuarioService.getUsuarioById(id);
+        return new ResponseEntity<>( usuarioDTO, HttpStatus.OK ) ;
     }
 
     /**
@@ -45,13 +49,15 @@ public class UsuarioController {
      *
     */
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public UsuarioDTO salvar(@RequestBody UsuarioDTO usuarioDTO){
-        return usuarioService.salvar(usuarioDTO);
+    public ResponseEntity<Object> salvar(@RequestBody UsuarioDTO usuarioDTO){
+        UsuarioDTO usuarioDTOCreated =  usuarioService.salvar(usuarioDTO);
+        return new ResponseEntity<>(usuarioDTOCreated, HttpStatus.CREATED );
     }
 
     @RequestMapping(value="/{id}",method=RequestMethod.DELETE)
-    public void deleleById(@PathVariable  Long id){
+    public ResponseEntity<Object> deleleById(@PathVariable  Long id){
         usuarioService.deleteById(id);
+        return new ResponseEntity<>(null, HttpStatus.OK );
     }
 
 }
