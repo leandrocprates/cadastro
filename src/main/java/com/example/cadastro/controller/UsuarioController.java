@@ -32,9 +32,9 @@ public class UsuarioController {
             @ApiResponse(code = 500, message = "Erro Interno no Servidor")
     })
     @RequestMapping(value="", method = RequestMethod.GET , produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Usuario>> listarTodos(){
-        List<Usuario> listUsuarios = usuarioService.listarTodos();
-        return new ResponseEntity<>(listUsuarios , HttpStatus.OK);
+    public ResponseEntity<List<UsuarioDTO>> listarTodos(){
+        List<UsuarioDTO> listUsuariosDTO = usuarioService.listarTodos();
+        return new ResponseEntity<>(listUsuariosDTO , HttpStatus.OK);
     }
 
     @ApiOperation(value = "Retorno o usuario pelo id informado.")

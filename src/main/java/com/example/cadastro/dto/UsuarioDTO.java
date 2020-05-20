@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -15,5 +16,5 @@ public class UsuarioDTO {
     private String nome ;
     private boolean ativo ;
     private Date data ;
-    private List<EnderecoDTO> enderecoDTO ;
+    private List<EnderecoDTO> enderecoDTO =  new ArrayList<EnderecoDTO>();
 }

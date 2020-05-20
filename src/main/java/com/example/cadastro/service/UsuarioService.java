@@ -1,6 +1,7 @@
 package com.example.cadastro.service;
 
 
+import com.example.cadastro.dto.EnderecoDTO;
 import com.example.cadastro.dto.UsuarioDTO;
 import com.example.cadastro.exception.ObjectNotFoundException;
 import com.example.cadastro.model.Usuario;
@@ -38,15 +39,29 @@ public class UsuarioService {
         logger.info("Buscando Usuario com ID {}" , id);
         Optional<Usuario> optUsuario = usuarioRepository.findById(id);
         if ( optUsuario.isPresent() ) {
-            BeanUtils.copyProperties(optUsuario.get() , usuarioDTO ) ;
+            Usuario usuario = optUsuario.get() ;
+            BeanUtils.copyProperties(usuario , usuarioDTO ) ;
+            usuario.getEnderecos().stream().forEach(endereco ->  {
+                EnderecoDTO enderecoDTO = new EnderecoDTO();
+                BeanUtils.copyProperties(endereco , enderecoDTO ) ;
+                usuarioDTO.getEnderecoDTO().add(enderecoDTO) ;
+            } );
+
         } else {
             throw new ObjectNotFoundException(String.format("Usuario ID [%d] nao encontrado." , id) ) ;
         }
         return usuarioDTO ;
     }
 
-    public List<Usuario> listarTodos(){
-        return usuarioRepository.findAll();
+    public List<UsuarioDTO> listarTodos(){
+        List<Usuario> listaUsuarios = usuarioRepository.findAll();
+        List<UsuarioDTO> listaUsuariosDTO = new ArrayList<UsuarioDTO>();
+        listaUsuarios.stream().forEach(usuario -> {
+            UsuarioDTO usuarioDTO = new UsuarioDTO();
+            BeanUtils.copyProperties(usuario , usuarioDTO ) ;
+            listaUsuariosDTO.add(usuarioDTO);
+        });
+        return listaUsuariosDTO ;
     }
 
 
