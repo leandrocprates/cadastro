@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class EnderecoDTO {
+public class EnderecoDTO extends GenericDTO {
     private Long id ;
     private String cep ;
     private String endereco ;

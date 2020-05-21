@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UsuarioDTO {
+public class UsuarioDTO extends GenericDTO {
     private Long id ;
     private String nome ;
     private boolean ativo ;

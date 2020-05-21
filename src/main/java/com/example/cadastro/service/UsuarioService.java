@@ -1,6 +1,7 @@
 package com.example.cadastro.service;
 
 
+import com.example.cadastro.converter.UsuarioConverter;
 import com.example.cadastro.dto.EnderecoDTO;
 import com.example.cadastro.dto.UsuarioDTO;
 import com.example.cadastro.exception.ObjectNotFoundException;
@@ -22,15 +23,17 @@ public class UsuarioService {
 
     Logger logger = LoggerFactory.getLogger(UsuarioService.class);
 
-
     @Autowired
     UsuarioRepository usuarioRepository ;
 
+    @Autowired
+    UsuarioConverter usuarioConverter ;
+
+
     public UsuarioDTO salvar(UsuarioDTO usuarioDTO){
-        Usuario usuario = new Usuario();
-        BeanUtils.copyProperties(usuarioDTO, usuario );
+        Usuario usuario = (Usuario) usuarioConverter.convertToEntity(usuarioDTO) ;
         usuario = usuarioRepository.save(usuario);
-        BeanUtils.copyProperties(usuario, usuarioDTO);
+        usuarioDTO = (UsuarioDTO) usuarioConverter.convertToDTO(usuario);
         return usuarioDTO ;
     }
 
@@ -40,13 +43,7 @@ public class UsuarioService {
         Optional<Usuario> optUsuario = usuarioRepository.findById(id);
         if ( optUsuario.isPresent() ) {
             Usuario usuario = optUsuario.get() ;
-            BeanUtils.copyProperties(usuario , usuarioDTO ) ;
-            usuario.getEnderecos().stream().forEach(endereco ->  {
-                EnderecoDTO enderecoDTO = new EnderecoDTO();
-                BeanUtils.copyProperties(endereco , enderecoDTO ) ;
-                usuarioDTO.getEnderecoDTO().add(enderecoDTO) ;
-            } );
-
+            usuarioDTO = (UsuarioDTO) usuarioConverter.convertToDTO(usuario);
         } else {
             throw new ObjectNotFoundException(String.format("Usuario ID [%d] nao encontrado." , id) ) ;
         }
@@ -56,11 +53,10 @@ public class UsuarioService {
     public List<UsuarioDTO> listarTodos(){
         List<Usuario> listaUsuarios = usuarioRepository.findAll();
         List<UsuarioDTO> listaUsuariosDTO = new ArrayList<UsuarioDTO>();
-        listaUsuarios.stream().forEach(usuario -> {
-            UsuarioDTO usuarioDTO = new UsuarioDTO();
-            BeanUtils.copyProperties(usuario , usuarioDTO ) ;
-            listaUsuariosDTO.add(usuarioDTO);
-        });
+        listaUsuariosDTO = (List<UsuarioDTO>) usuarioConverter.convertToListDTO(listaUsuarios);
+        if ( listaUsuariosDTO.isEmpty() ) {
+            throw new ObjectNotFoundException(String.format("Nenum Usuario encontrado no Banco de Dados." ) ) ;
+        }
         return listaUsuariosDTO ;
     }
 
