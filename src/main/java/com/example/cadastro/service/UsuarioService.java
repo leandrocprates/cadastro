@@ -41,6 +41,7 @@ public class UsuarioService {
         UsuarioDTO usuarioDTO = new UsuarioDTO();
         logger.info("Buscando Usuario com ID {}" , id);
         Optional<Usuario> optUsuario = usuarioRepository.findById(id);
+
         if ( optUsuario.isPresent() ) {
             Usuario usuario = optUsuario.get() ;
             usuarioDTO = (UsuarioDTO) usuarioConverter.convertToDTO(usuario);
