@@ -56,7 +56,7 @@ public class UsuarioService {
         List<UsuarioDTO> listaUsuariosDTO = new ArrayList<UsuarioDTO>();
         listaUsuariosDTO = (List<UsuarioDTO>) usuarioConverter.convertToListDTO(listaUsuarios);
         if ( listaUsuariosDTO.isEmpty() ) {
-            throw new ObjectNotFoundException(String.format("Nenum Usuario encontrado no Banco de Dados." ) ) ;
+            throw new ObjectNotFoundException(String.format("Nenhum Usuario encontrado no Banco de Dados." ) ) ;
         }
         return listaUsuariosDTO ;
     }
