@@ -56,19 +56,20 @@ Response Body :
   
   ```json 
   {
-  "id": 1,
-  "nome": "Leandro Cesar Prates",
-  "ativo": true,
-  "data": "2020-04-19T15:35:26.000+0000",
-  "enderecoDTO": [
-    {
-      "id": 30,
-      "cep": "02440-050",
-      "endereco": "Avenida Joao Pessoa",
-      "bairro": "Lauzane Paulista"
-    }
-  ]
-}
+    "id": 1,
+    "nome": "Leandro Cesar Prates",
+    "ativo": true,
+    "data": "2020-04-19T15:35:26.000+0000",
+    "enderecoDTO": [
+      {
+        "id": 30,
+        "cep": "02440-050",
+        "endereco": "Avenida Joao Pessoa",
+        "bairro": "Lauzane Paulista"
+      }
+    ]
+  }
+  
   ``` 
   
   
