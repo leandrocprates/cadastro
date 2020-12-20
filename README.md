@@ -8,7 +8,7 @@
 <li>
   Executar o start do projeto . A documentação do projeto feita com Swagger 2 esta acessivel na seguinte URL: <p>
   
-  <a href="http://localhost:9096/swagger-ui.html">Swagger 2 Api</a>
+  <a href="http://localhost:9096/swagger-ui.html">Swagger 2 Api</a>  http://localhost:9096/swagger-ui.html
   
  
  
