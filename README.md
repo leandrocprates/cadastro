@@ -1,7 +1,7 @@
 # cadastro
 
 
-<p>Este projeto consiste num projeto Spring boot com APIs REST criando num modelo de  DTO pattern , documentação com Swagger 2 e acesso ao Banco com Spring Data.</p> 
+<p>Este projeto consiste num projeto Spring boot com APIs REST criando num modelo de  <b>DTO</b> pattern , documentação com <b>Swagger 2</b> e acesso ao Banco com <b>Spring Data</b>.</p> 
 
 
 <ol>
