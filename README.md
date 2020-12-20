@@ -53,6 +53,7 @@ Response Body :
   
   Recupera usuario pelo id 
   
+  Response Body :
   
   ```json 
   {
