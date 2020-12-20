@@ -12,7 +12,7 @@
 
 
 <li>
-  Metodo GET : http://localhost:9096/usuario
+  Metodo GET : <a href="http://localhost:9096/usuario">http://localhost:9096/usuario</a>
   
   Recupera todos os usuarios na base de dados. 
 
@@ -49,9 +49,29 @@ Response Body :
 
 
 <li>
-  Metodo GET : http://localhost:9096/usuario
+  Metodo GET : <a href="http://localhost:9096/usuario/1">http://localhost:9096/usuario/1</a>
   
-  Recupera todos os usuarios na base de dados. 
+  Recupera usuario pelo id 
+  
+  
+  ```json 
+  {
+  "id": 1,
+  "nome": "Leandro Cesar Prates",
+  "ativo": true,
+  "data": "2020-04-19T15:35:26.000+0000",
+  "enderecoDTO": [
+    {
+      "id": 30,
+      "cep": "02440-050",
+      "endereco": "Avenida Joao Pessoa",
+      "bairro": "Lauzane Paulista"
+    }
+  ]
+}
+  ``` 
+  
+  
 </li> 
 
 
