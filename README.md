@@ -10,9 +10,53 @@
   <a href="http://localhost:9096/swagger-ui.html">http://localhost:9096/swagger-ui.html</a>
 </li>
 
+
 <li>
-  O projeto estara acessivel pela seguinte URL : http://localhost:9096/usuario 
+  Metodo GET : http://localhost:9096/usuario
+  
+  Recupera todos os usuarios na base de dados. 
+
+Response Body : 
+
+```json
+[
+  {
+    "id": 1,
+    "nome": "Leandro",
+    "ativo": true,
+    "data": "2020-04-19T15:35:26.000+0000",
+    "enderecoDTO": [
+      {
+        "id": 30,
+        "cep": "01040-060",
+        "endereco": "Avenida Paulista",
+        "bairro": "Bela Vista"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nome": "Ariane",
+    "ativo": false,
+    "data": "2020-04-19T15:35:26.000+0000",
+    "enderecoDTO": []
+  }
+]
+
+```
 </li> 
+
+
+
+<li>
+  Metodo GET : http://localhost:9096/usuario
+  
+  Recupera todos os usuarios na base de dados. 
+</li> 
+
+
+
+
 
 </ol>
 
