@@ -64,7 +64,7 @@ public class UsuarioController {
      * }
      *
     */
-    @ApiOperation(value="Salva um usuario . Retornando o usuario com o Id gerando no banco.")
+    @ApiOperation(value="Salva um usuario . Retornando o usuario com o Id gerado no banco.")
     @ApiResponses(value = {
             @ApiResponse(code = 200 , message = "Salva usuario no Banco de Dados "),
             @ApiResponse(code = 500, message = "Erro Interno no Servidor")

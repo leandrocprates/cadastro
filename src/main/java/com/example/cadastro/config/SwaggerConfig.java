@@ -28,12 +28,15 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.basePackage("com.example.cadastro.controller"))
                 .paths(PathSelectors.any())
                 .build()
-                .apiInfo(apiInfo());
-                //.useDefaultResponseMessages(false)
-                //.globalResponseMessage(RequestMethod.GET, responseMessageForGET()) ;
+                .apiInfo(apiInfo())
+                .useDefaultResponseMessages(false)
+                .globalResponseMessage(RequestMethod.GET, responseMessageForGET()) ;
     }
 
-
+    /**
+     * Define codigos de resposta para GET no swagger
+     * @return
+     */
     private List<ResponseMessage> responseMessageForGET()
     {
         return new ArrayList<ResponseMessage>() {{
@@ -41,10 +44,6 @@ public class SwaggerConfig {
                     .code(500)
                     .message("Internal Error ")
                     .responseModel(new ModelRef("Error"))
-                    .build());
-            add(new ResponseMessageBuilder()
-                    .code(403)
-                    .message("Forbidden!")
                     .build());
             add(new ResponseMessageBuilder()
                     .code(404)
