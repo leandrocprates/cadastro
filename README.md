@@ -82,6 +82,9 @@ Response Body :
   
   Metodo POST : <a href="http://localhost:9096/usuario">http://localhost:9096/usuario</a>
 
+  Insere um novo Usuario com Endereço no Banco de Dados 
+
+
   Content-Type : application/json
 
   Response Body  : 
