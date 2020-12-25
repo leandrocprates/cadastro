@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class EnderecoConverter  implements Converter {
@@ -32,10 +33,15 @@ public class EnderecoConverter  implements Converter {
     @Override
     public List<? extends GenericDTO> convertToListDTO(List<? extends GenericEntity> listEntity) {
         List<EnderecoDTO> listaEnderecosDTO = new ArrayList<EnderecoDTO>();
-        listEntity.stream().forEach(endereco -> {
-            EnderecoDTO enderecoDTO = ( EnderecoDTO ) convertToDTO(endereco);
-            listaEnderecosDTO.add(enderecoDTO);
-        });
+
+        Optional< List<? extends GenericEntity> > listEntity1  = Optional.ofNullable(listEntity);
+        if ( listEntity1.isPresent() ){
+            listEntity.stream().forEach(endereco -> {
+                EnderecoDTO enderecoDTO = ( EnderecoDTO ) convertToDTO(endereco);
+                listaEnderecosDTO.add(enderecoDTO);
+            });
+        }
+
         return listaEnderecosDTO;
     }
 
