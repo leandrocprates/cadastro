@@ -26,8 +26,9 @@ public class Usuario extends GenericEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Date data ;
 
-    @OneToMany(fetch = FetchType.LAZY , mappedBy = "usuario", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY ,  cascade = CascadeType.ALL)
+    @JoinColumn(name="USUARIO_ID")
+    //@JsonManagedReference
     private List<Endereco> enderecos ;
 
 

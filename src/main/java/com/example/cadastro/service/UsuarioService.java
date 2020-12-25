@@ -32,7 +32,7 @@ public class UsuarioService {
 
     public UsuarioDTO salvar(UsuarioDTO usuarioDTO){
         Usuario usuario = (Usuario) usuarioConverter.convertToEntity(usuarioDTO) ;
-        usuario = usuarioRepository.save(usuario);
+        usuario = usuarioRepository.saveAndFlush(usuario);
         usuarioDTO = (UsuarioDTO) usuarioConverter.convertToDTO(usuario);
         return usuarioDTO ;
     }

@@ -19,8 +19,9 @@ public class Endereco extends GenericEntity {
     private String endereco ;
     private String bairro ;
 
-    @ManyToOne
-    @JsonBackReference
-    private Usuario usuario ;
+    //@ManyToOne
+    //@JoinColumn(name="USUARIO_ID")
+    //@JsonBackReference
+    //private Usuario usuario ;
 
 }
