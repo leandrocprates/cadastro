@@ -1,7 +1,7 @@
 # cadastro
 
 
-<p>Este projeto consiste num projeto Spring boot com APIs REST criando num modelo de  <b>DTO</b> pattern , documentação com <b>Swagger 2</b> e acesso ao Banco com <b>Spring Data</b>.</p> 
+<p>Este projeto consiste num projeto Spring boot com APIs REST criando num modelo de  <b>DTO pattern</b> , documentação com <b>Swagger 2</b> e acesso ao Banco com <b>Spring Data</b>.</p> 
 
 
 Swagger inicializado na classe do pacote abaixo 
