@@ -4,6 +4,48 @@
 <p>Este projeto consiste num projeto Spring boot com APIs REST criando num modelo de  <b>DTO</b> pattern , documentação com <b>Swagger 2</b> e acesso ao Banco com <b>Spring Data</b>.</p> 
 
 
+Swagger inicializado na classe do pacote abaixo 
+
+<b>com.example.cadastro.config.SwaggerConfig</b>
+
+```json
+@Configuration
+@EnableSwagger2
+public class SwaggerConfig {
+```
+
+No pacote DTO esta implementada as classes de Transferencia de Dados entre entrada dos Serviços Rest e Saida de Dados como Resposta. Modelo de <b>UsuarioDTO</b> 
+Pacote : <b>com.example.cadastro.dto.UsuarioDTO</b>
+
+
+
+```json 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class UsuarioDTO extends GenericDTO {
+    @ApiModelProperty(value = "Código do Usuario")
+    private Long id ;
+    @ApiModelProperty(value = "Nome do Usuario")
+    private String nome ;
+    @ApiModelProperty(value = "Retorna se Usuario esta Ativo ou Inativo no Sistema")
+    private boolean ativo ;
+    @ApiModelProperty(value = "Data de Criação do Usuario no Sistema")
+    private Date data ;
+    @ApiModelProperty(value = "Endereço vinculado ao Usuario")
+    private List<EnderecoDTO> enderecoDTO =  new ArrayList<EnderecoDTO>();
+}
+
+```
+
+
+
+
+
+
+
+
 <ol>
 <li>
   Executar o start do projeto . A documentação do projeto feita com Swagger 2 esta acessivel na seguinte URL: <p>
