@@ -78,6 +78,36 @@ Response Body :
 
 
 
+<li>
+  
+  Metodo POST : <a href="http://localhost:9096/usuario">http://localhost:9096/usuario</a>
+
+  Content-Type : application/json
+
+  Response Body  : 
+
+```json 
+    {
+       "nome":"Senhro neves ",
+       "ativo":"true",
+       "data":"2020-04-30T20:50:30",
+       "enderecoDTO":[
+          {
+             "cep":"01040-060",
+             "endereco":"Avenida Barrao de Limeira",
+             "bairro":"Ibirapuera"
+          }
+       ]
+
+    }  
+  
+```   
+  
+</li>  
+
+
+
+
 
 
 </ol>
