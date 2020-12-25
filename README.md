@@ -12,7 +12,7 @@
 
 
 <li>
-  Metodo GET : <a href="http://localhost:9096/usuario">http://localhost:9096/usuario</a>
+  Metodo <b>GET</b> : <a href="http://localhost:9096/usuario">http://localhost:9096/usuario</a>
   
   Recupera todos os usuarios na base de dados. 
 
@@ -49,7 +49,7 @@ Response Body :
 
 
 <li>
-  Metodo GET : <a href="http://localhost:9096/usuario/1">http://localhost:9096/usuario/1</a>
+  Metodo <b>GET</b> : <a href="http://localhost:9096/usuario/1">http://localhost:9096/usuario/1</a>
   
   Recupera usuario pelo id 
   
@@ -80,7 +80,7 @@ Response Body :
 
 <li>
   
-  Metodo POST : <a href="http://localhost:9096/usuario">http://localhost:9096/usuario</a>
+  Metodo <b>POST</b> : <a href="http://localhost:9096/usuario">http://localhost:9096/usuario</a>
 
   Insere um novo Usuario com Endereço no Banco de Dados 
 
