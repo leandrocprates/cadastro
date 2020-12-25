@@ -8,7 +8,7 @@ Swagger inicializado na classe do pacote abaixo
 
 <b>com.example.cadastro.config.SwaggerConfig</b>
 
-```json
+```html
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
@@ -19,7 +19,7 @@ Pacote : <b>com.example.cadastro.dto.UsuarioDTO</b>
 
 
 
-```json 
+```html 
 @Getter
 @Setter
 @AllArgsConstructor
