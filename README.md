@@ -109,9 +109,15 @@ Response Body :
 </li>  
 
 
+<li>
+  
+  
+  
+<li>  
+  
+  Metodo <b>DELETE</b> : <a href="http://localhost:9096/usuario/24">http://localhost:9096/usuario/24</a>
 
-
-
+  Deleta usuario pelo id informado no path 
 
 </ol>
 
