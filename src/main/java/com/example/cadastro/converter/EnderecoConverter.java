@@ -34,15 +34,35 @@ public class EnderecoConverter  implements Converter {
     public List<? extends GenericDTO> convertToListDTO(List<? extends GenericEntity> listEntity) {
         List<EnderecoDTO> listaEnderecosDTO = new ArrayList<EnderecoDTO>();
 
-        Optional< List<? extends GenericEntity> > listEntity1  = Optional.ofNullable(listEntity);
-        if ( listEntity1.isPresent() ){
-            listEntity.stream().forEach(endereco -> {
-                EnderecoDTO enderecoDTO = ( EnderecoDTO ) convertToDTO(endereco);
+        Optional< List<? extends GenericEntity> > optionalListEntity  = Optional.ofNullable(listEntity);
+        if ( optionalListEntity.isPresent() ){
+            List<? extends GenericEntity>  listEntityEndereco  = optionalListEntity.get();
+
+            listEntityEndereco.stream().forEach(enderecoEntity -> {
+                EnderecoDTO enderecoDTO = ( EnderecoDTO ) convertToDTO(enderecoEntity);
                 listaEnderecosDTO.add(enderecoDTO);
             });
         }
-
         return listaEnderecosDTO;
     }
+
+
+    @Override
+    public List<? extends GenericEntity> convertToListEntity(List<? extends GenericDTO> listDTO) {
+        List<Endereco> listaEnderecos = new ArrayList<Endereco>();
+
+        Optional< List<? extends GenericDTO> > optionalListDto  = Optional.ofNullable(listDTO);
+        if ( optionalListDto.isPresent() ){
+            List<? extends GenericDTO>  listDtoEndereco = optionalListDto.get() ;
+
+            listDtoEndereco.stream().forEach(enderecoDto -> {
+                Endereco endereco = ( Endereco ) convertToEntity(enderecoDto);
+                listaEnderecos.add(endereco);
+            });
+        }
+        return listaEnderecos;
+    }
+
+
 
 }
