@@ -15,6 +15,10 @@
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
+		<sonar.projectKey>leandrocprates_cadastro</sonar.projectKey>
+		<sonar.organization>leandrocprates</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
 	</properties>
