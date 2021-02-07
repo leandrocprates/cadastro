@@ -2,7 +2,7 @@ package com.example.cadastro.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.http.HttpStatus;
+
 
 @AllArgsConstructor
 @Data

@@ -2,14 +2,12 @@ package com.example.cadastro.service;
 
 
 import com.example.cadastro.converter.UsuarioConverter;
-import com.example.cadastro.dto.EnderecoDTO;
 import com.example.cadastro.dto.UsuarioDTO;
 import com.example.cadastro.exception.ObjectNotFoundException;
 import com.example.cadastro.model.Usuario;
 import com.example.cadastro.repository.UsuarioRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -38,7 +36,7 @@ public class UsuarioService {
     }
 
     public UsuarioDTO getUsuarioById(Long id){
-        UsuarioDTO usuarioDTO = new UsuarioDTO();
+        UsuarioDTO usuarioDTO = null ;
         logger.info("Buscando Usuario com ID {}" , id);
         Optional<Usuario> optUsuario = usuarioRepository.findById(id);
 
@@ -53,10 +51,10 @@ public class UsuarioService {
 
     public List<UsuarioDTO> listarTodos(){
         List<Usuario> listaUsuarios = usuarioRepository.findAll();
-        List<UsuarioDTO> listaUsuariosDTO = new ArrayList<UsuarioDTO>();
-        listaUsuariosDTO = (List<UsuarioDTO>) usuarioConverter.convertToListDTO(listaUsuarios);
+        List<UsuarioDTO> listaUsuariosDTO = (List<UsuarioDTO>) usuarioConverter.convertToListDTO(listaUsuarios);
+
         if ( listaUsuariosDTO.isEmpty() ) {
-            throw new ObjectNotFoundException(String.format("Nenhum Usuario encontrado no Banco de Dados." ) ) ;
+            throw new ObjectNotFoundException("Nenhum Usuario encontrado no Banco de Dados."  ) ;
         }
         return listaUsuariosDTO ;
     }

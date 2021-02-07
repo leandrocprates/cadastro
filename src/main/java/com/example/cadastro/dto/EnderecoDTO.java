@@ -12,5 +12,5 @@ public class EnderecoDTO extends GenericDTO {
     private String cep ;
     private String endereco ;
     private String bairro ;
-    //private UsuarioDTO usuarioDTO ;
+
 }

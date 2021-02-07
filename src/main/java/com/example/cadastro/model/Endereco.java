@@ -1,7 +1,6 @@
 package com.example.cadastro.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.Data;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,9 +18,6 @@ public class Endereco extends GenericEntity {
     private String endereco ;
     private String bairro ;
 
-    //@ManyToOne
-    //@JoinColumn(name="USUARIO_ID")
-    //@JsonBackReference
-    //private Usuario usuario ;
+
 
 }

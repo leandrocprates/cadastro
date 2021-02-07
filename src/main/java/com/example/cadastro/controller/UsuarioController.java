@@ -1,7 +1,6 @@
 package com.example.cadastro.controller;
 
 import com.example.cadastro.dto.UsuarioDTO;
-import com.example.cadastro.model.Usuario;
 import com.example.cadastro.service.UsuarioService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -84,7 +83,7 @@ public class UsuarioController {
     @RequestMapping(value="/{id}",method=RequestMethod.DELETE)
     public ResponseEntity<Object> deleleById(@PathVariable  Long id){
         usuarioService.deleteById(id);
-        return new ResponseEntity<>(null, HttpStatus.OK );
+        return new ResponseEntity<>( HttpStatus.OK );
     }
 
 }
