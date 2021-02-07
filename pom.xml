@@ -17,6 +17,8 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+		<sonar.host.url>http://localhost:9000</sonar.host.url>
+		<sonar.login>0c2fffe0b009e12a6937e9e70c9cde3e02b30bb1</sonar.login>
 		<sonar.exclusions>
 			src/test/*,
 			src/main/java/config/*,
