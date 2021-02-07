@@ -17,6 +17,15 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+		<sonar.exclusions>
+			src/test/*,
+			src/main/java/config/*,
+			src/main/java/com/example/cadastro/controller/*,
+			src/main/java/com/example/cadastro/controllerAdvice/*,
+			src/main/java/com/example/cadastro/dto/*,
+			src/main/java/com/example/cadastro/exception/*,
+			src/main/java/com/example/cadastro/model/*,
+		</sonar.exclusions>
 	</properties>
 
 	<dependencies>

@@ -1,8 +1,5 @@
 package com.example.cadastro.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,7 +25,6 @@ public class Usuario extends GenericEntity {
 
     @OneToMany(fetch = FetchType.LAZY ,  cascade = CascadeType.ALL)
     @JoinColumn(name="USUARIO_ID")
-    //@JsonManagedReference
     private List<Endereco> enderecos ;
 
 
